@@ -35,8 +35,8 @@ public class SecurityConfig {
                         .permitAll()
                 );
 
-        http
-                .csrf(AbstractHttpConfigurer::disable);
+//        http
+//                .csrf(AbstractHttpConfigurer::disable);
 
         http
                 .sessionManagement((auth) -> auth
