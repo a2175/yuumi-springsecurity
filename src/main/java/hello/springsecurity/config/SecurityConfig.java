@@ -28,12 +28,10 @@ public class SecurityConfig {
     @Bean
     public RoleHierarchy roleHierarchy() {
 
-        RoleHierarchyImpl hierarchy = new RoleHierarchyImpl();
-
-        hierarchy.setHierarchy("ROLE_C > ROLE_B\n" +
-                "ROLE_B > ROLE_A");
-
-        return hierarchy;
+        return RoleHierarchyImpl.withDefaultRolePrefix()
+                .role("ADMIN").implies("USER")
+                .role("USER").implies("GUEST")
+                .build();
     }
 
     @Bean
